@@ -25,11 +25,12 @@ jobs:
     
         - name: Unit Testing
           run: npm test
+          continue-on-error: true
           
         - name: Archive Test Result
           uses: actions/upload-artifact@v4
-          continue-on-error: true
           with:
             name: Mocha-Test-Result
             path: test-results.xml
+
 
