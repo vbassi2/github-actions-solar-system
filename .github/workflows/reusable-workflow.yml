@@ -1,5 +1,5 @@
 name: Testing - Reusable Workflow
-on: 
+on:
   workflow_call: 
    inputs: 
      ingress-url: 
