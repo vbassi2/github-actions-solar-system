@@ -88,7 +88,7 @@ jobs:
            run: | 
              echo "APP_INGRESS_URL=https://dev.myapp.com" >> $GITHUB_OUTPUT
     # dev-deploy job
-     integration-test:
+    integration-test:
        needs: dev-deploy
        uses:  ./.github/workflows/reusable-workflow.yml
        with:    
