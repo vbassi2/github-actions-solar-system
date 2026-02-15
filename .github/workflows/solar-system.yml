@@ -83,12 +83,16 @@ jobs:
             echo "kubectl returned $?"
             kubectl -n default get pod
             sleep 10
+         - name: SET URL OUTPUT
+           id: set-url
+           run: | 
+             echo "APP_INGRESS_URL=https://dev.myapp.com" >> $GITHUB_OUTPUT
     # dev-deploy job
-    integration-test:
-      needs: dev-deploy
-      uses:  ./.github/workflows/reusable-workflow.yml
-      with:
-        ingress-url: ${{ needs.dev-deploy.outputs.APP_INGRESS_URL }}
+     integration-test:
+       needs: dev-deploy
+       uses:  ./.github/workflows/reusable-workflow.yml
+       with:    
+       ingress-url: ${{ needs.dev-deploy.outputs.APP_INGRESS_URL }}
 # next job
 
 
